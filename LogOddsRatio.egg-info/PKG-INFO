@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: LogOddsRatio
+Version: 0.0.1
+Summary: Log odd ratio calculation
+Home-page: https://github.com/nils-drechsel/log-odds-ratio
+Author: Nils J. D. Drechsel
+Author-email: nils.drechsel@gmail.com
+License: UNKNOWN
+Description: # log-odds-ratio
+        A library to calculate log odds ratio using an uninformative prior
+        See: Monroe et al. http://languagelog.ldc.upenn.edu/myl/Monroe.pdf
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown

@@ -1,0 +1,9 @@
+README.md
+setup.py
+LogOddsRatio/CorpusDictionary.py
+LogOddsRatio/LogOddsRatio.py
+LogOddsRatio/__init__.py
+LogOddsRatio.egg-info/PKG-INFO
+LogOddsRatio.egg-info/SOURCES.txt
+LogOddsRatio.egg-info/dependency_links.txt
+LogOddsRatio.egg-info/top_level.txt
