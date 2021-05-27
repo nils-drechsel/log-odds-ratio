@@ -10,6 +10,7 @@ import re
 import codecs
 import csv
 
+import string
 
 
 
@@ -102,12 +103,16 @@ class CorpusDictionary:
             reader = csv.reader(f, quoting = quoting)
             
             indexes = []
-            
+            print("columns: "+str(columns))
             for i, row in enumerate(reader):
                 if i == 0:
                     for j, col in enumerate(row):
-                        if col in columns:
+                        
+                        if strip(col.strip()) in columns:
                             indexes.append(j)
+                            
+                    if len(indexes) != len(columns):
+                        raise Exception("columns for "+filename+" are incorrect")
                     continue
                 
                 for j in indexes:
@@ -115,7 +120,7 @@ class CorpusDictionary:
                     
                 if callback is not None:
                     callback(i)
-                
+                    
     def write_to_dictionary_csv(self, filename):
         with codecs.open(filename, "w", "utf-8") as f:
             writer = csv.writer(f, quoting=csv.QUOTE_MINIMAL)
@@ -194,3 +199,5 @@ def create_from_csv(file_name, column_term, column_n, stemming = None, lowercase
     
     
     
+def strip(s):
+    return ''.join(filter(lambda c: c in string.printable, s))

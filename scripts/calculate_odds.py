@@ -16,7 +16,7 @@ import sys
 from LogOddsRatio.CorpusDictionary import CorpusDictionary
 from LogOddsRatio.LogOddsRatio import LogOddsRatio
 from LogOddsRatio.CorpusDictionary import create_from_csv
-
+from LogOddsRatio.CorpusDictionary import strip
 csv.field_size_limit(sys.maxsize)
 
 
@@ -87,10 +87,14 @@ with codecs.open(file_out, "w", "utf-8") as f_out:
             for i, row in enumerate(reader):
                 if i == 0:
                     for j, col in enumerate(row):
-                        if col in columns:
+                        if strip(col) in columns:
                             indexes.append(j)
-                        if col == name_column:
+                        if strip(col) == name_column:
                             index_name = j
+                            
+                    if len(indexes) != len(columns):
+                        raise Exception("columns for "+filename+" are incorrect")                            
+                            
                     continue
                 
                 document_dictionary = CorpusDictionary(stemming = stemming, lowercase = lowercase)
